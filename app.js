@@ -4,9 +4,9 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const _ = require("lodash");
-const dotenv = require("dotenv");
+const dotEnv = require("dotenv");
 
-dotenv.config();
+dotEnv.config();
 
 const app = express();
 
@@ -16,7 +16,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
 mongoose.set("strictQuery", false);
-mongoose.connect(MONGODB, {useNewUrlParser: true});
+mongoose.connect(process.env.MONGODB, {useNewUrlParser: true});
 
 const itemsSchema = {
   name: String
