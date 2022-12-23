@@ -6,7 +6,7 @@ const mongoose = require("mongoose");
 const _ = require("lodash");
 const dotEnv = require("dotenv");
 
-dotEnv.config();
+dotEnv.config({path: "./.env"});
 
 const mongoUri = process.env.MONGODB;
 
