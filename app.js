@@ -20,7 +20,9 @@ app.use(express.static("public"));
 mongoose.set("strictQuery", false);
 const connectDB = async () => {
   try{
-    mongoose.connect(mongoUri, {useNewUrlParser: true});
+    mongoose.connect(mongoUri, {useUnifiedTopology:true,
+      useNewUrlParser: true,
+      useCreateIndex: true});
     console.log("MongoDB Connected.");
   } catch(err){
     console.log(err);
