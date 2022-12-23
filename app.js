@@ -18,7 +18,7 @@ app.use(express.static("public"));
 mongoose.set("strictQuery", false);
 const connectDB = async () => {
   try{
-    mongoose.connect("mongodb+srv://admin-anmol:todolist-admin-anmol@cluster0.p1eqp3g.mongodb.net/todolistDB", {useNewUrlParser: true});
+    mongoose.connect(process.env.MONGODB, {useNewUrlParser: true});
     console.log("MongoDB Connected.");
   } catch(err){
     console.log(err);
