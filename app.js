@@ -6,7 +6,7 @@ const mongoose = require("mongoose");
 const _ = require("lodash");
 const dotEnv = require("dotenv");
 
-dotEnv.config({path: "./.env"});
+dotEnv.config();
 
 const mongoUri = process.env.MONGODB;
 
@@ -20,9 +20,7 @@ app.use(express.static("public"));
 mongoose.set("strictQuery", false);
 const connectDB = async () => {
   try{
-    mongoose.connect(mongoUri, {useUnifiedTopology:true,
-      useNewUrlParser: true,
-      useCreateIndex: true});
+    mongoose.connect(mongoUri, {useNewUrlParser: true, useUnifiedTopology:true, useCreateIndex: true});
     console.log("MongoDB Connected.");
   } catch(err){
     console.log(err);
