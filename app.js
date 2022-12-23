@@ -8,8 +8,6 @@ const dotEnv = require("dotenv");
 
 dotEnv.config();
 
-const mongoUri = process.env.MONGODB;
-
 const app = express();
 
 app.set('view engine', 'ejs');
@@ -20,7 +18,7 @@ app.use(express.static("public"));
 mongoose.set("strictQuery", false);
 const connectDB = async () => {
   try{
-    mongoose.connect(`${process.env.MONGODB}`, {useNewUrlParser: true, useUnifiedTopology:true, useCreateIndex: true});
+    mongoose.connect(`mongodb+srv://${DB_USER}:${DB_PASS}@cluster0.p1eqp3g.mongodb.net/todolistDB`, {useNewUrlParser: true, useUnifiedTopology:true, useCreateIndex: true});
     console.log("MongoDB Connected.");
   } catch(err){
     console.log(err);
