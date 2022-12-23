@@ -16,7 +16,15 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
 mongoose.set("strictQuery", false);
-mongoose.connect("mongodb+srv://admin-anmol:todolist-admin-anmol@cluster0.p1eqp3g.mongodb.net/todolistDB", {useNewUrlParser: true});
+const connectDB = async () => {
+  try{
+    mongoose.connect("mongodb+srv://admin-anmol:todolist-admin-anmol@cluster0.p1eqp3g.mongodb.net/todolistDB", {useNewUrlParser: true});
+    console.log("MongoDB Connected.");
+  } catch(err){
+    console.log(err);
+    process.exit(1);
+  }
+}
 
 const itemsSchema = {
   name: String
@@ -130,6 +138,8 @@ app.post("/delete", function(req, res){
 //   res.render("about");
 // });
 
-app.listen(process.env.PORT || 3000, function() {
+connectDB().then(() => {
+  app.listen(process.env.PORT || 3000, function() {
   console.log("Server started on port 3000");
-});
+  });
+})
