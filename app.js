@@ -8,6 +8,8 @@ const dotEnv = require("dotenv");
 
 dotEnv.config();
 
+const mongoUri = process.env.MONGODB;
+
 const app = express();
 
 app.set('view engine', 'ejs');
@@ -18,7 +20,7 @@ app.use(express.static("public"));
 mongoose.set("strictQuery", false);
 const connectDB = async () => {
   try{
-    mongoose.connect(process.env.MONGODB, {useNewUrlParser: true});
+    mongoose.connect(mongoUri, {useNewUrlParser: true});
     console.log("MongoDB Connected.");
   } catch(err){
     console.log(err);
