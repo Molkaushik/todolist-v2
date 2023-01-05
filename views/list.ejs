@@ -1,4 +1,4 @@
-<%- include("header") -%>
+<%- include("partials/header") -%>
 
   <div class="box" id="heading">
     <h1> <%= listTitle %> </h1>
@@ -12,13 +12,14 @@
           <p><%=  item.name  %></p>
         </div>
         <input type="hidden" name="listName" value="<%= listTitle %>">
+        <input type="hidden" name="userName" value="<%= user %>">
       </form>
     <% }) %>
 
-      <form class="item" action="/" method="post">
+      <form class="item" action="/<%= user %>" method="post">
         <input type="text" name="newItem" placeholder="New Item" autocomplete="off">
         <button type="submit" name="list" value="<%= listTitle %>">+</button>
       </form>
   </div>
 
-<%- include("footer") -%>
+<%- include("partials/footer") -%>
