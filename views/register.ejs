@@ -10,14 +10,14 @@
                 <h3 class="mb-5">New user? Register Here!</h3>
                 <form action="/register" method="POST">
                     <div class="form-outline mb-4">
-                        <input type="text" name="userName" id="typeEmailX-2" class="form-control form-control-lg" required/>
+                        <input type="text" name="username" id="typeEmailX-2" class="form-control form-control-lg" pattern="[a-zA-Z0-9]+" required/>
                         <label class="form-label" for="typeEmailX-2"><%= text %></label>
                     </div> 
 
-                    <div class="form-outline mb-4">
+                    <!-- <div class="form-outline mb-4">
                     <input type="email" name="email" id="typeEmailX-2" class="form-control form-control-lg" required/>
                     <label class="form-label" for="typeEmailX-2">Email</label>
-                    </div>
+                    </div> -->
         
                     <div class="form-outline mb-4">
                     <input type="password" name="password" id="typePasswordX-2" class="form-control form-control-lg" minlength="6" required/>
