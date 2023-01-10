@@ -228,7 +228,7 @@ app.post("/delete", function(req, res){
             return item._id != checkedItemId;
           });
           foundUser.save();
-          res.redirect("/" + userName);
+          res.redirect("/" + username);
         }else{
           const ind = foundUser.lists.findIndex(list => list.name === listName);
           foundUser.lists[ind].items = foundUser.lists[ind].items.filter((item) => {
